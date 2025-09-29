@@ -1,0 +1,396 @@
+' ********** Copyright 2016 Roku Corp.  All Rights Reserved. **********
+
+Function loadConfig() as Object
+    arr = [
+'##### Format for inputting stream info #####
+'## For each channel, enclose in brackets ## 
+'{
+'   Title: Channel Title
+'   streamFormat: Channel stream type (ex. "hls", "ism", "mp4", etc..)
+'   Logo: Channel Logo (ex. "http://Roku.com/Roku.jpg)
+'   Stream: URL to stream (ex. http://hls.Roku.com/talks/xxx.m3u8)
+'}
+    
+{
+    Title: "Fox News"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/FOX.png"
+    Stream: "https://fl25.moveonjoy.com/FOX_NEWS_CHANNEL/tracks-v1a1/mono.m3u8"
+}
+{
+    Title: "OAN"
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://a-cdn.klowdtv.com/live1/oan_720p/playlist.m3u8"
+}
+{
+    Title: "ABC News"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/IPTVtuner/TV-Logos/main/abc.png"
+    Stream: "https://content.uplynk.com/channel/3324f2467c414329b3b0cc5cd987b6be.m3u8"
+}
+{
+    Title: "CBS News"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/CBS.png"
+    Stream: "https://cbsn-us.cbsnstream.cbsnews.com/out/v1/55a8648e8f134e82a470f83d562deeca/master.m3u8"
+}
+{
+    Title: "Newsmax"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/newsmax-tv-us.png"
+    Stream: "https://nmx1ota.akamaized.net/hls/live/2107010/Live_1/index.m3u8"
+}
+{
+    Title: "MSNBC"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/MSNBC.png"
+    Stream: "https://fl25.moveonjoy.com/MSNBC/index.m3u8"
+}
+{
+    Title: "Fox Weather"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/FOX.png"
+    Stream: "https://247wlive.foxweather.com/stream/index_1280x720.m3u8"
+}
+{
+    Title: "GB News"
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg01076-lightningintern-gbnewsnz-samsungnz/playlist.m3u8"
+}
+{
+    Title: "Euro News"
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://a-cdn.klowdtv.com/live3/euronews_720p/playlist.m3u8"
+}
+{
+    Title: "Fox Business"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/FOX.png"
+    Stream: "https://fl25.moveonjoy.com/FOX_Business_Network/index.m3u8"
+}
+{
+    Title: "Court TV"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/court-tv-us.png"
+    Stream: "https://fl25.moveonjoy.com/COURT_TV/index.m3u8"
+}
+{
+    Title: "The First TV"
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://thefirst-oando.amagi.tv/hls/amagi_hls_data_thefirstd-thefirst-oando/CDN/playlist.m3u8"
+}
+{
+    Title: "Scripps News"
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://livetv-fa.tubi.video/scripps-news/playlist.m3u8"
+}
+{
+    Title: "Bravo"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/bravo-us.png"
+    Stream: "https://v15.thetvapp.to/hls/BravoEast/tracks-v2a1/mono.m3u8?token=7Kq9SYta6pRJdWhErGdAww&expires=1759162671&user_id=OU9BeFNQQVB0TDI5REJlNDVmOHNSVHBBYkphd0NzMmFpUkttbzJ3dA=="
+}
+{
+    Title: "Boomerang "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/boomerang-us.png"
+    Stream: "https://v2.thetvapp.to/hls/Boomerang/tracks-v2a1/mono.m3u8?token=LPrFf0Ld5duFLxCj7_zgUw&expires=1759162681&user_id=QUpPMnFPdU9XUXY2WnJiWlFqdjlvaVJSelJqSWpDNFpPaEprMkdVeA=="
+}
+{
+    Title: "Fox News"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/FOX.png"
+    Stream: "https://e2.thetvapp.to/hls/FoxNewsChannel/tracks-v2a1/mono.m3u8?token=gjzZPywI8JW5jLcnnP7sAw&expires=1759162691&user_id=R2RHM0RoQnY0QmxiWnFPYkFFNkhQelZWaDFuTkxaNEFYU2NseWhoZw=="
+}
+{
+    Title: "Cartoon Network "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/cartoon-network-us.png"
+    Stream: "https://v1.thetvapp.to/hls/CartoonNetworkEast/tracks-v2a1/mono.m3u8?token=PH0shvVWUhMH_bFqTWSujg&expires=1759162700&user_id=THNYcUxhb1hDTEdnbkkxVTZRTlg0WU44VU5wbG8xSGFBRHhpVVg3QQ=="
+}
+{
+    Title: "Fox Sports 1 "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/FOX.png"
+    Stream: "https://v8.thetvapp.to/hls/FoxSports1/tracks-v2a1/mono.m3u8?token=Rc8SW-tjYQ6IQgbNWhADbw&expires=1759162710&user_id=d1R1WVp1QzhmdzlRTHpGbUJvVUhkV283ZUlxUXhPcHIyR09hZTJkVw=="
+}
+{
+    Title: "Fox Sports 2 "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/FOX.png"
+    Stream: "https://v13.thetvapp.to/hls/FoxSports2/tracks-v2a1/mono.m3u8?token=oJEVua5NHsbhMwrVS77O8Q&expires=1759162720&user_id=Tkd0NGt2UGtzUG0yeWZSb1FaTER0OUtwRUxpT3pDUkVmeU5uTG5WeA=="
+}
+{
+    Title: "Hallmark "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/hallmark-channel-us.png"
+    Stream: "https://e5.thetvapp.to/hls/HallmarkChannelEast/tracks-v2a1/mono.m3u8?token=REQiKheTl3Oz2-S6n7aOBw&expires=1759162729&user_id=eDdRaGNtMEdBNUpTSVVDUjRxMVI1ZTNFMTlvbTdwMmpsWWtoR2FrZg=="
+}
+{
+    Title: "HBO "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/hbo-comedy-hz-us.png"
+    Stream: "https://v5.thetvapp.to/hls/HBOEast/tracks-v2a1/mono.m3u8?token=Nzsvjev9nJc4Tbt6Ujrvlg&expires=1759162739&user_id=dmQwczZ3Vk9XMGVaUWZGU0xQa01KVGpqc0doMkVPTXNtSXhlWGJiaw=="
+}
+{
+    Title: "HBO 2 "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://e3.thetvapp.to/hls/HBO2East/tracks-v2a1/mono.m3u8?token=h0RjQK37YQ_4SqNvaIZk5w&expires=1759162749&user_id=V1NHQmRUY1VpMDNsMWtQeTBoYzRydHlpZGhNbGRlamx3TjBGTlZ2cQ=="
+}
+{
+    Title: "HBO Comedy "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v8.thetvapp.to/hls/HBOComedyEast/tracks-v2a1/mono.m3u8?token=cJk_y0poPEdFkrPYk1kY8Q&expires=1759162758&user_id=YnJZSExEY2MzdGozQ1JxekVackFlMThpTFk0QzBvSWpHOFdRZWt6OA=="
+}
+{
+    Title: "HBO Family "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v17.thetvapp.to/hls/HBOFamilyEast/tracks-v2a1/mono.m3u8?token=u9tWSniW-YvKnO3SctxdKA&expires=1759162768&user_id=TnBENG01Y0MwN3Zmc0d0blNBNVZNelpHWmpvZGZhRXNKWXpPT2FRaQ=="
+}
+{
+    Title: "HBO Signature (HBO 3) Eastern "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://e1.thetvapp.to/hls/HBOSignatureEast/tracks-v2a1/mono.m3u8?token=8d9LjDNsI6cS6Fg5gtKPDA&expires=1759162778&user_id=YU5JbnNsTW44elpyWDUzSENOU3lmUWpxYmRFczhPNlJHek5mWk1ZTA=="
+}
+{
+    Title: "HBO Zone "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v12.thetvapp.to/hls/HBOZoneEast/tracks-v2a1/mono.m3u8?token=sDtZMJSSM3K-Ubm7WrRKbw&expires=1759162788&user_id=Nk1tUER4MVl6Z1A5WEl6SmtjeldHUmlaS0FsaEVMUDUwZU1vb0JFVw=="
+}
+{
+    Title: "HGTV "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/hgtv-us.png"
+    Stream: "https://v1.thetvapp.to/hls/HGTVEast/tracks-v2a1/mono.m3u8?token=AQ89K3Hw2lPWqaIJB6gl7w&expires=1759162797&user_id=QVdvOEthejdiNzRyZW9zOWw5TVVZek5WTWdXUFB2NmFoeXVMb1VueA=="
+}
+{
+    Title: "History "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/discovery-history-us.png"
+    Stream: "https://v14.thetvapp.to/hls/HistoryEast/tracks-v2a1/mono.m3u8?token=kvudrpicNY3CxpJHBthQ7A&expires=1759162807&user_id=d1V3M09HNzFYbHJ6RTJwYXJyRlBWUGt6aER5akVHaUJOTGtlSEx4Wg=="
+}
+{
+    Title: "HLN "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/hln-us.png"
+    Stream: "https://v16.thetvapp.to/hls/HLN/tracks-v2a1/mono.m3u8?token=l4-Af18imMYdPikky8iZNA&expires=1759162817&user_id=bGJtakVyT3RhSld4UnpKR252dTJvcXd3M2xRVzdvVUVIdEViNFgwaw=="
+}
+{
+    Title: "Investigation Discovery  "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v17.thetvapp.to/hls/InvestigationDiscoveryEast/tracks-v2a1/mono.m3u8?token=yFMy1QNp5jp-e1hT3sDUbg&expires=1759162826&user_id=bU1rdUVENEprVDlTaDRtSVdVN3MwSE11NGRpNGdrazhPbFhScVlJUQ=="
+}
+{
+    Title: "ION "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/action-channel-us.png"
+    Stream: "https://v3.thetvapp.to/hls/IONTVEast/tracks-v2a1/mono.m3u8?token=TqA43NscUBp2ecXCFvYLPw&expires=1759162836&user_id=SlFudTFtZmdTUTkyUnBNVXRIc2NUMldvdUtDc1dld3lBRmlMQzlEUw=="
+}
+{
+    Title: "Lifetime "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/lifetime-movie-network-us.png"
+    Stream: "https://v12.thetvapp.to/hls/LifetimeEast/tracks-v2a1/mono.m3u8?token=H7uA85g-RJyygUlUyASVkw&expires=1759162846&user_id=TWIzdEZlTnhDd2RaZnFYVDJxRXBJbUpZbHhmNFlRNGkxV3FkbHF4Tw=="
+}
+{
+    Title: "MLB Network "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/mlb-extra-innings-us.png"
+    Stream: "https://e4.thetvapp.to/hls/MLBNetwork/tracks-v2a1/mono.m3u8?token=7TqtDnEs586RdwsH3ENOdw&expires=1759162855&user_id=NHI3UWRMODBzd1BiUG53aHFpZmQzZE1nZG9rMXRNRFNBNEhaM3ZZSA=="
+}
+{
+    Title: "Newsmax"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/newsmax-tv-us.png"
+    Stream: "https://v15.thetvapp.to/hls/NewsmaxTV/tracks-v2a1/mono.m3u8?token=7RM487TDB0rf6a8o4Kzdrw&expires=1759162865&user_id=c0lYeUpiOGRvWGtjandraEYwTllnSjVyZ0M3Mm1VUjN0czlCUmxQYg=="
+}
+{
+    Title: "Nickelodeon "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/nickelodeon-en-espanol-us.png"
+    Stream: "https://e1.thetvapp.to/hls/NickelodeonEast/tracks-v2a1/mono.m3u8?token=Vk4J2BUfzmeXknAGDxT05g&expires=1759162874&user_id=dmQxWlkweEdxYlNyOHNIUDB3b05tVVE3aHkzOFphazlBUWRVOGhlaw=="
+}
+{
+    Title: "Outdoor "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/outdoor-channel-plus-us.png"
+    Stream: "https://v18.thetvapp.to/hls/OutdoorChannel/tracks-v2a1/mono.m3u8?token=x7bKQ6SryH5gtRL88TxM2w&expires=1759162884&user_id=WnF0d2dwbWtGNndkbWxuNXR1WXM1bXRTNUV3eUg4ZTJCcG5uVHhKOA=="
+}
+{
+    Title: "Science Channel "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/discovery-science-icon-shade-us.png"
+    Stream: "https://e4.thetvapp.to/hls/Science/tracks-v2a1/mono.m3u8?token=z-N8IjLiVvM59nQWsasorw&expires=1759162893&user_id=OEZqV2xaM2FmS0dCUWtPY0pVSmZVYmlTeUVhT0JyeHhDQnVVZjl1Uw=="
+}
+{
+    Title: "TBS "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tbs-us.png"
+    Stream: "https://e5.thetvapp.to/hls/TBSEast/tracks-v2a1/mono.m3u8?token=WWS-vSlK841-VWzRujzI1A&expires=1759162903&user_id=SjVRdExlZ3liaEM5ZVdDNlNhOWUxdXBUSHlaYkZtS3lBMzR0VmdWQQ=="
+}
+{
+    Title: "Syfy "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/syfy-hz-us.png"
+    Stream: "https://v14.thetvapp.to/hls/SyfyEast/tracks-v2a1/mono.m3u8?token=YqRTvXoMVsEz2ajVjioxHQ&expires=1759162912&user_id=SGZWQUl3TExtSlZKRXQwQTJBODlFc2VpSnhaS1JndFRWamVtQVQxVw=="
+}
+{
+    Title: "The Weather Channel "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://e2.thetvapp.to/hls/TheWeatherChannel/tracks-v2a1/mono.m3u8?token=dL3SA-Eomk_MkKoEWJvjUA&expires=1759162922&user_id=ZFFCZXFIbVNmVHgzQW1ick02c2tBY3JneDQyaHgyc0J4Ym5RNzhSQQ=="
+}
+{
+    Title: "Travel Channel   "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/travel-channel-us.png"
+    Stream: "https://v4.thetvapp.to/hls/TravelChannelEast/tracks-v2a1/mono.m3u8?token=r165uUuK8ICcXezRrk9pSw&expires=1759162931&user_id=T09IZmVza3c2elBpU0lrOWk1cm5zWFd0TDB4WDRya3FBY2VWcmRtVw=="
+}
+{
+    Title: "TNT "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tnt-us.png"
+    Stream: "https://v18.thetvapp.to/hls/TNTEast/tracks-v2a1/mono.m3u8?token=SpBBco7eW0ymGIkCMRL_pw&expires=1759162941&user_id=ZGs0QW9aRDNQcWxEekNQR2JxVUlzZ0RjRzN1U0E4Ym9kcjV0S09yRA=="
+}
+{
+    Title: "truTV  "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v8.thetvapp.to/hls/truTVEast/tracks-v2a1/mono.m3u8?token=7M1sKG2Sk2wmYSkJKGRHZQ&expires=1759162950&user_id=QVRPT0ZhaU1kT3lQVWp3REgxQ3BuNm5IdDJ6Sm40UDE5VTJISzdkNQ=="
+}
+{
+    Title: "USA "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/usa-us.png"
+    Stream: "https://v12.thetvapp.to/hls/USANetworkEast/tracks-v2a1/mono.m3u8?token=-bbsY6HwoemDFsFQH794Ag&expires=1759162960&user_id=VElQWEI5YWg1ajNycU1OVkpmMWFwN3ZGMGVOVkZBMTVNRk1HY09ZcA=="
+}
+{
+    Title: "Discovery "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/discovery-channel-icon-2-us.png"
+    Stream: "https://v3.thetvapp.to/hls/DiscoveryChannelEast/tracks-v2a1/mono.m3u8?token=87OyHxl6BGgoiajEdF2E2Q&expires=1759162970&user_id=SEZhWmZaNUFkOTRBY2E5T1E2UjNFRlNUYmd4OWZPZ01sYUtkRjJlMg=="
+}
+{
+    Title: "Discovery Family  "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v13.thetvapp.to/hls/DiscoveryFamily/tracks-v2a1/mono.m3u8?token=DzNNbghqzqe4qeOyEwgPig&expires=1759162979&user_id=NUFFcmhISnV1WVZ5djJxSk14anRtYk95Sll2NlphcnFNVHdveXMwRQ=="
+}
+{
+    Title: "Discovery Life  "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://e3.thetvapp.to/hls/DiscoveryLife/tracks-v2a1/mono.m3u8?token=kSOdZUBetdCrLFR-0NICsg&expires=1759162989&user_id=bWpHQnQyRFhoVDlScXZoNmlqdmhOdkRGQW1UdlJoTkpHb2xPbEVLQQ=="
+}
+{
+    Title: "Crime + Investigation Network "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://e5.thetvapp.to/hls/CrimePlusInvestigation/tracks-v2a1/mono.m3u8?token=zBKFzsSsp88Ka2t6SgUwtg&expires=1759162999&user_id=Mmt2MGxWcEJNbGhxWG9pUFl0c0dTMUpYRUJuT3d3WTI2Z3lJTUJDWA=="
+}
+{
+    Title: "CSPAN "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/CSPAN.png"
+    Stream: "https://v14.thetvapp.to/hls/CSPAN/tracks-v2a1/mono.m3u8?token=Ficgj5szi32IqeUFBOj4wQ&expires=1759163009&user_id=eWU4NlhyNUtKMW4wYmlZNHo4MHN4Tmh6R3BFdThrYmJtSnRNbjBkTA=="
+}
+{
+    Title: "CSPAN 2 "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/CSPAN.png"
+    Stream: "https://v14.thetvapp.to/hls/CSPAN2/tracks-v2a1/mono.m3u8?token=SY1s5oMOmoAeLS5XQW8K-A&expires=1759163018&user_id=UXF4eW1rbWxoRU9BT2VnaVE5Zm1lVHVnVjc1b0tnMkFWaDh2VnhOZQ=="
+}
+{
+    Title: "AMC "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/amc-us.png"
+    Stream: "https://v3.thetvapp.to/hls/AMCEast/tracks-v2a1/mono.m3u8?token=9SlgtubUp6rjlGd1yyE70A&expires=1759163028&user_id=dDB2ajlROHRjMEowMVhSMzVHcUpXWEdZZVNRMmxISmU3V2Zrd3BKbQ=="
+}
+{
+    Title: "FYI "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/FYI.png"
+    Stream: "https://v8.thetvapp.to/hls/FYIEast/tracks-v2a1/mono.m3u8?token=E4X7JWtHLCEJxhWW1Da1DA&expires=1759163038&user_id=alJ0TDJybEx2Qk5uZzhGYTZmd0JTczRZOXJYRFhIU01JM1Qxc3hxcQ=="
+}
+{
+    Title: "MoreMax"
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v16.thetvapp.to/hls/MoreMaxEast/tracks-v2a1/mono.m3u8?token=DD0uJPCzuiAW-H4CmJdd_Q&expires=1759163047&user_id=Tk5CTEpuZUhUS3F0cDBIakVYWnhEOW9oVjd2VGNvMkpocTQ2UWlOUA=="
+}
+{
+    Title: "TV Land"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/heartland-us.png"
+    Stream: "https://v17.thetvapp.to/hls/tv-land-eastern/tracks-v2a1/mono.m3u8?token=JW_PrZQYzue59iDER3LkLg&expires=1759163057&user_id=SU5BdDFkSXQ5aGdKcGl0WHNrc0NwOVZrMlpZVGFqWE42ZjhiUUpNMw=="
+}
+{
+    Title: "Turner Classic Movies  "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v4.thetvapp.to/hls/TCMEast/tracks-v2a1/mono.m3u8?token=FbP-GGzJIbmlBCoGkI0LbQ&expires=1759163067&user_id=NDFlallhRnMyeFJnZVhreUdKZlJlQzJIYWhKVWN2RHhiYzEzTnJ0RA=="
+}
+{
+    Title: "TLC"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/tlc-us.png"
+    Stream: "https://e1.thetvapp.to/hls/TLCEast/tracks-v2a1/mono.m3u8?token=Hwf7jiRb9o-E2NiLrR_AQQ&expires=1759163076&user_id=VXI5Qm54Q1YxRm15SGdTSmNDM3dhUkh5V2dZMmR0c1RpZGEyNWtNdw=="
+}
+{
+    Title: "Cooking_Channel"
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/amjiddader/tv_logo/master/USA/Cooking_Channel.png"
+    Stream: "https://v14.thetvapp.to/hls/CookingChannel/tracks-v2a1/mono.m3u8?token=uLUq0b3VugEowOqazwNf_A&expires=1759163086&user_id=aHRxY3FRT041OTBZUEhTRjdXUnNYckNrWlVDSHduanZDeGR3VW1TZg=="
+}
+{
+    Title: "Cinemax "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/cinemax-action-us.png"
+    Stream: "https://v16.thetvapp.to/hls/CinemaxEast/tracks-v2a1/mono.m3u8?token=Owb87kjrsqW08at8hfXNrw&expires=1759163096&user_id=N0tFeVgweHE5RlhxRUs2Sm5iTHJ1Yk9NZkthMHM5Q2k0YzBMMUViNg=="
+}
+{
+    Title: "Animal Planet   "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v16.thetvapp.to/hls/AnimalPlanetEast/tracks-v2a1/mono.m3u8?token=2ZLcRALIcXeGR69E2rmR7Q&expires=1759163105&user_id=WXk0NllJeHJaOEpzb3RYNzRoczN2bUwwdWR0aWZWTWJLQzBPQnBseg=="
+}
+{
+    Title: "BBC News North America HD "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v3.thetvapp.to/hls/BBCWorldNewsNorthAmerica/tracks-v2a1/mono.m3u8?token=JVfg7QtfsPTIeaF6HIiLAQ&expires=1759163115&user_id=S3VaTXBnU1pQTUVwRWRHclRsWk5YSVRtSURJbHdkVFkzTlk0ejduRg=="
+}
+{
+    Title: "Comedy Central US "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://v12.thetvapp.to/hls/ComedyCentralEast/tracks-v2a1/mono.m3u8?token=qssb8itvLDQ_KclfQ9YAWA&expires=1759163125&user_id=VVJ4aXNvYm9aMzVNbjAxODhyZ1FnTEVJRnZpYXl4cTUxaXdhd3BSNw=="
+}
+{
+    Title: "FX Networks East Coast "
+    streamFormat: "hls"
+    Logo: "None"
+    Stream: "https://e1.thetvapp.to/hls/FXEast/tracks-v2a1/mono.m3u8?token=RY8ZNTBP98-TmMmtC0W_aA&expires=1759163135&user_id=NWRaYTVtQWN3dWRhQUlHVnFFWGhMVDFZZzVQNlpHbDBwOXBzbkNENA=="
+}
+{
+    Title: "Fuse TV "
+    streamFormat: "hls"
+    Logo: "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/united-states/fuse-us.png"
+    Stream: "https://v13.thetvapp.to/hls/FuseEast/tracks-v2a1/mono.m3u8?token=VtWlvB5c9qC71WIzBhZHhA&expires=1759163144&user_id=WFNEaW5MMkZxY3ptcUR0R0EwMVV1SWtyR2dWdFFYRUdBNXNGZE9RaA=="
+}
+
+'##### Make sure all Channel content is above this line #####    
+    ] 
+    return arr
+End Function
